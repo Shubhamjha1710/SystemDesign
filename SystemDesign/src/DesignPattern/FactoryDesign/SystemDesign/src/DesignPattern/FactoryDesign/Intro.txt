@@ -1,0 +1,50 @@
+The Factory Method pattern falls under the category of creational design patterns
+Instead of directly instantiating objects using constructors, the Factory design
+pattern delegates the responsibility of object creation to subclasses, allowing
+for greater flexibility and extensibility.
+
+The Factory Design Pattern is a way to create objects without directly using the
+new keyword everywhere in your code. Instead, you let a factory class or method
+decide which object to create and how to create it. Think of it like a real factory:
+You don’t build a car yourself — you ask the factory for one, and factory knows
+how to build different types of cars and gives you the right one.
+
+
+
+Real world use cases
+1. E-commerce platforms use factory methods to create different payment processors.
+Based on user selection, the factory returns an instance of the correct payment
+service without changing client logic.
+2. Browsers use factory methods to create different types of plugins or page renderers
+based on content type (e.g., PDF, HTML, Flash). This allows flexible and extensible
+handling of various media.
+3. An E-Commerce Platform notification System may use it to create different types
+of notifications like WhatsApp, SMS, etc.
+
+
+
+When to use it
+a. To hide complex object creation logic from the main code/client.
+b. To easily add new types of objects later without changing the main code.
+(something like interfaces or to create subclasses of a superclass)
+c. When the system needs to be open for extension but closed for modification (OCP).
+d. Scalability by adding new product types without altering client code.
+e. To Reduces dependency between client and concrete classes. (like payment gateway)
+f. Flexibility by supporting multiple product families with minimal changes.
+
+
+
+Components of Factory Method Design Pattern
+1.Product: Abstract interface or class for objects created by the factory. Defines
+the common type for all objects the factory will create. It like a blueprint that
+all products must follow.
+2.Concrete Product: The actual object that implements the product interface.
+3.Creator (Factory Interface/Abstract Class): This class (or method) is responsible
+for creating and returning objects of the Product type.
+
+
+Types
+1. Simple Factory: One factory class decides product to create.
+2. Factory Method Pattern: Multiple factories which creates its own type of products
+3. Abstract Factory Pattern: Multiple factories which creates families of products
+
