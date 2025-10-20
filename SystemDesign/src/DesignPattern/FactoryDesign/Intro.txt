@@ -34,10 +34,17 @@ f. Flexibility by supporting multiple product families with minimal changes.
 
 
 
- Components of Factory Method Design Pattern
+Components of Factory Method Design Pattern
 1.Product: Abstract interface or class for objects created by the factory. Defines
 the common type for all objects the factory will create. It like a blueprint that
 all products must follow.
 2.Concrete Product: The actual object that implements the product interface.
 3.Creator (Factory Interface/Abstract Class): This class (or method) is responsible
 for creating and returning objects of the Product type.
+
+
+Types
+1. Simple Factory: One factory class decides product to create.
+2. Factory Method Pattern: Multiple factories which creates its own type of products
+3. Abstract Factory Pattern: Multiple factories which creates families of products
+
