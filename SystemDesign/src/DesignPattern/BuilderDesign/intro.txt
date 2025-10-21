@@ -1,0 +1,24 @@
+The Builder Design Pattern is a creational design pattern that provides a step-by-step
+approach to constructing complex objects. It is used to create a complex object
+especially when the object has many optional parts or different configurations.
+Instead of calling a long constructor with 10 parameters —“build” the object gradually
+in a readable way.
+
+Features of Builder design pattern
+1. Encapsulates object construction logic in a separate Builder class.
+2. Supports different variations of a product using the same process.
+3. Improves readability and maintainability by avoiding long constructors with many
+parameters.
+
+When to Use the Builder Pattern
+1. When constructing an object is complex and involves many optional parameters.
+2. When you want to avoid telescoping constructors (constructors with too many parameters).
+
+Components of Builder Pattern
+1. Product: The complex object being built (e.g. Pizza)
+2. Builder: Abstract or base class defining steps (creates different part of object)
+3. Concrete Builder: Implements the building methods in builder class
+4. Director: Control the building process and decide the order in which parts
+are constructed.
+5. Client: Use the builder to set the desired parts step by step and call the
+build() method to get the final product.
