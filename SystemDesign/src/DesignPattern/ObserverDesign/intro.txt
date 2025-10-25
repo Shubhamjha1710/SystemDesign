@@ -1,0 +1,44 @@
+Observer Design Pattern is a behavioral pattern that establishes a one-to-many
+dependency between objects. When something changes subjects state, all of its
+observers are automatically notified and updated. It focuses on enabling efficient
+communication and synchronization between objects in response to state changes.
+
+The Observer pattern lets one object (called the Subject) automatically notify other
+objects (called Observers) whenever something changes in it.
+So, when one object changes → all interested objects get updated automatically.
+Without this observer design pattern subject need to know about all observer detail, but
+in this case it can simple broadcast the changes
+
+
+Real Life Use Of Observer Design Pattern
+1. Social Media Notifications: Users (observers) get updates when someone they follow
+(subject) posts new content or status.
+2. Stock Market Apps: Investors(observers) receive real-time updates when stock prices
+(subjects) change.
+3. Event Listeners in GUIs: UI components observe user actions like clicks or keyboard
+input and respond accordingly.
+4. Weather Monitoring System: Multiple displays or devices update automatically when
+the central weather data changes.
+
+
+Key Features of the Observer Design Pattern
+Loose Coupling: Subjects don’t need to know details about observers.
+Dynamic Relationships: Observers can be added or removed at runtime.
+Scalability: Works well when multiple objects depend on the same subject.
+Reusability: Observers and subjects can be reused independently.
+Automatic Synchronization: Any state change in the subject is propagated to all observers.
+Flexibility: Supports many-to-many relationships (multiple subjects and multiple observers).
+
+
+Component of observer design pattern
+1. Subject (Observable):The main object being watched. It keeps a list of observers
+and notifies them of changes.
+2. Observer (Listener):	The dependent object that wants updates when the subject changes.
+3. Concrete Subject: The actual implementation of the Subject.
+4. Concrete Observer: The actual implementation of the Observer.
+
+
+Polling technique: When observer continuously asks from subject has its state changed
+Pushing technique: When subject notifies the observer that its state changed. So this
+design pattern is pushing based.
+
