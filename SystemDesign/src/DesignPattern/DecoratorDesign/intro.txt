@@ -1,0 +1,43 @@
+Decorator Design Pattern: Decorator design pattern is a structural pattern that lets
+you dynamically add new features to individual objects without changing other objects
+of the same class.
+It uses decorator classes to wrap concrete components, that adds something new.
+
+Let says there is three types of pizza
+1. Normal Pizza
+2. Noraml Pizza + Capcicum
+3. Normal Pizza + Capcicum + Cheese Burst
+
+The above types shows a Pizza (base component) wrapped with Capsicum and then Cheese Burst
+(decorators). Each adds its own cost, so the final price = Pizza + Capsicum + Cheese Burst.
+This illustrates how the Decorator Pattern layers extra behavior dynamically.
+
+
+Real-World Examples
+1. Coffee Shop Application: Customers can customize their coffee with add-ons like milk,
+sugar or whipped cream. Each add-on is a decorator dynamically applied to the coffee
+object with extra cost. Here each time we didn't create new kind of coffee just add extra
+feature (decorators) to base coffe.
+2. Video Streaming Platforms: Videos can have subtitles, audio enhancements, multiple
+resolutions or language options, all added as decorators.
+3. Text Processing Applications: A plain text object can be wrapped with BoldDecorator,
+ItalicDecorator or UnderlineDecorator to apply multiple formatting styles.
+4. Java I/O Library: Classes like FileInputStream can be wrapped by BufferedInputStream
+or DataInputStream to add additional functionality without changing the core class.
+
+
+Why Use It?
+Because with normal inheritance and creating new additional subclasses for each new
+decorated classes. Then it will create too much subclasses which will make code to
+debug. Let say you have n feature so creating new subclass for each feature combination
+will create overall 2^n subclasses, which is too huge. So to avoid this situation
+and extend functionality at runtime.
+
+
+Key Components of the Decorator Design Pattern
+1. Component Interface: Defines common operations for concrete component and decorators.
+2. Concrete Component: Core object with basic functionality means basic objects.
+3. Decorator:Abstract wrapper that holds a Component reference and adds its own behavior.
+4. Concrete Decorator: Specific decorators that extend functionality of the component.
+Concrete decorator need some base component to adds on there functionality.
+
