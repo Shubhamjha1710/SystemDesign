@@ -1,0 +1,26 @@
+Command Design Pattern is a behavioral pattern that encapsulates a request as an object,
+decoupling the sender from the receiver. It allows requests to be queued, logged, parameterized,
+or undone/redone, providing flexibility in executing operations.
+So instead of calling a method directly, you wrap the action inside a command object.
+
+
+Real world example
+1. Imagine a TV remote control. Each button (“Turn ON”, “Turn OFF”, “Change Ch”) represents
+a Command.
+2. The TV is the Receiver (the object that knows how to actually perform the action).
+3. The Remote Control is the Invoker — it doesn’t know how the TV works; it just triggers commands.
+
+
+Why to use this?
+Let say we building simple smart home remote that can turn ON/OFF Light, Fan and TV. Here the
+remote knows exactly how to control devices. And if we don't use this design pattern then if
+a new device is added (like AC, Motor), we must modify the remote class again → tightly coupled.
+But using this command we only need to set a new device command on existing button (if available)
+
+
+Component of Command design pattern
+1. Command (interface): Declares the basic execute() and undo() method
+2. Concrete Command: Implements execute() and undo(), by calling methods on a receiver
+3. Receiver: The actual object that performs the work and on which command gets executed
+4. Invoker:	Calls the command’s execute() method, in above example its remote
+5. Client: Creates command objects and links them with the receiver and invoker
