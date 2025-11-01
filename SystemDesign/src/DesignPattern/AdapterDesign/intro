@@ -19,6 +19,8 @@ old code again, we can use an adapter that does the conversion.
 
 When to use this?
 1. You want to reuse an existing class but its interface doesn’t match what your code expects.
+Let says your application used java 8 but existing legacy code uses java 2 so this adapter will
+convert java 8 request to java 2.
 2. You want to make two incompatible interfaces work together.
 
 
