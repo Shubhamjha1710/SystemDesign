@@ -2,7 +2,8 @@ package DesignPattern.AdapterDesign;
 
 public class XmlToJsonConvertorAdapter implements IReport{
 
-    // adapter wraping some other  module is currently not compatible with client interaction in terface
+    // adapter wrapping some other external module. Currently not compatible with client.
+    // so creating an adapter which will implements target interface and act as an wrapper
     private final XmlDataProvider xmlFormator = new XmlDataProvider();
     @Override
     public String getJsonData() {
