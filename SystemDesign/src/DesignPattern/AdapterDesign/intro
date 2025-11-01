@@ -1,0 +1,68 @@
+Adapter Design Pattern is a structural pattern that acts as a bridge between two incompatible
+interfaces, allowing them to work together. It is especially useful for integrating legacy code
+or third-party libraries into a new system. So, adapter acts like a translator between two
+incompatible systems or classes that can’t work together directly.
+For eg: You have a phone charger that only supports USB-C, but your wall socket only supports a
+three-pin plug. So, you use an adapter that connects your charger to the wall socket. An Adapter
+converts one interface (expected by the client) into another (provided by an existing class).
+Your Code  ----connects---->   Adapter   ----connects---->    3rd party library
+
+
+Real-World Example of Adapter Design Pattern
+1. Software that use different file formats (like CSV, JSON, XML) uses adapters to convert these
+into a format that the application can work with, facilitating data interoperability.
+2. Device Drivers in Operating Systems, Database Connectors and Language Converters (Chinese to
+English and English to Hindi) are more examples of adapters.
+3. In situations where we have a major change in new vs old APIs, instead of writing the whole
+old code again, we can use an adapter that does the conversion.
+
+
+When to use this?
+1. You want to reuse an existing class but its interface doesn’t match what your code expects.
+2. You want to make two incompatible interfaces work together.
+
+
+Components of Adapter Design Pattern
+1. Target Interface: Defines the interface the client expects (e.g., PaymentProcessor), code with
+which clients communicates.
+2. Adaptee: The existing class with an incompatible interface that needs integration. (like an
+old payment gateway systems etc)
+3. Adapter: Implements the target interface and uses the adaptee internally, acting as a bridge.
+(i.e calls adaptee functions internally)
+4. Client: Uses the target interface, without caring about of the adapter or adaptee details.
+
+
+How Adapter Design Pattern works?
+Step 1: The client initiates a request by calling a method on the adapter via the target interface.
+Step 2: The adapter maps or transforms the client's request into a format that the adaptee can
+understand using the adaptee's interface. And transforms there response in client's compatible.
+Step 3: The adaptee does the actual job based on the translated request from the adapter.
+Step 4: The client receives the results of the call, remaining unaware of the adapter's presence
+or the specific details of the adaptee.
+
+
+// Existing class (incompatible interface)
+class OldPaymentSystem {
+    public void pay(int amount) {
+        System.out.println("Paid using old system: " + amount);
+    }
+}
+
+// New system that expects a different interface
+class NewPaymentProcessor {
+    public void processPayment(int amount) {
+        System.out.println("Payment processed using new system: " + amount);
+    }
+}
+
+// Client code - wants to use NewPaymentProcessor, but has OldPaymentSystem
+public class PaymentApp {
+    public static void main(String[] args) {
+        OldPaymentSystem oldSystem = new OldPaymentSystem();
+
+        // ❌ Problem: oldSystem doesn't have processPayment()
+        // oldSystem.processPayment(100);  // Compilation error
+    }
+}
+If we don't use adapter desing pattern we need to tightly couple our client to payment systems
+Creating its own type of object.
