@@ -1,0 +1,31 @@
+Facade Design Pattern is a Structural pattern that simplifies interactions with complex subsystems.
+It provides a unified, easy-to-use interface to the complex system made up of multiple classes for
+clients and promoting cleaner, more maintainable code.
+It hides complexity and exposes only what the client actually needs.
+Client ----interacts---->  Intermediator (Facade interface)  --------> interacts with complex system.
+
+
+Real life usage
+1.Video Streaming Platform: Provide a unified interface for video encoding, buffering and playback.
+2.Banking Systems: Offers easy access to complex operations like fund transfers and balance inquiries.
+
+
+Use of Facade Method Design Pattern
+1.Simplifying Complex External Systems: Encapsulate database handling and hides API complexity.
+2.Layering Subsystems: Defines clear boundaries and offers simplified subsystem interfaces.
+3. Protecting Clients from Unstable Systems: Maintains a stable interface and decouples clients
+from external changes.
+
+
+Components of Facade Pattern
+1. Subsystem Classes: Complex, detailed system parts (e.g., DVDPlayer, Projector, SoundSystem)
+2. Facade: Provides a simple interface to interact with all subsystems
+3. Client: Uses the Facade instead of dealing with subsystems directly
+
+Client communicate with the subsystem by sending requests to Facade, which forwarded by facade
+to appropriate subsystem objects.
+
+
+Lets take a example of theater where there are multiple subsystem like sound system, projector and
+dvd player works to provide theater experience. So here we will implement a facade interface which
+handle all this interaction we only provide this interface a move name and volume number.
