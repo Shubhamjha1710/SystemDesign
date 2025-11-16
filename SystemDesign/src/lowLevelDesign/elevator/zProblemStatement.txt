@@ -1,0 +1,53 @@
+Problem statement: Design an elevator system for a building with multiple floors with only
+x elevators cars. Design this system such that wait time for each floor guest should not be
+too large or small
+
+
+Requirements Gathering
+1. There is a set of x elevators in building
+2. There is a set of n floors in the building (n > 2*x)
+3. All floors should have elevator control panel (buttons for direction up/down, display to
+show elevator's floor no with direction)
+4. There should control panel inside elevator (floor no button, open/close door, ring alarm,
+display to show elevator's floor no  direction of movement)
+5. There should be constraint like weight and minimum person count on elevator.
+5. A person can enter the elevator only when it is stopped and the doors are open.
+6. A dispatcher algorithm to enures that there should be minimum response time.
+7. A controller should be responsible for gathering requests from inside and outside
+elevator from buttons on both internal and external sides. The system shall assign the most
+suitable elevator based on its current location and trajectory.
+8. Every elevator should have a set of serving floors like first x/2 elevator for n/2 and next
+x/2 for upper n/2 floors.
+9. We should maintain the top floor and the lowest floor number.
+
+-------------------------------------------------------------------------------------------------
+
+Low Level Designing
+Now using above requirements we can identify following classes
+1. Building
+2. Elevator
+3. Floor
+4. Door
+5. Control panel (two types external and internal we can use inheritance)
+6. Display
+7. Controller or dispatcher
+8. Main Class which is used to run the application
+
+
+Flow:
+1. There is main method which will create complete architecture like Building.
+2. This Building will contain instance variable like no of elevators and no of floors. Contain
+the reference of controller.
+3. This controller contains the references of elevators and floors. Receives and processes the
+request from floor to stop the elevator. Then decide the most suitable elevator and delicate the
+request to this elevator. There should be only one instance of controller (singleton class)
+4. Elevator serves two types of request i.e request from person inside the elevator and from the
+person outside elevator (via controller) and serves the both types of request by halting at floor.
+There is multiple scheduling strategy which an elevator should opt to improve response time.
+
+--------------------------------------------------------------------------------------------------
+
+Design Patterns
+1. Observer design pattern: To send the request / notification from floor to elevator.
+2. Strategy design pattern: To opt multiple scheduling strategy at runtime.
+3. Singleton design pattern: To make the centralized controller system.
