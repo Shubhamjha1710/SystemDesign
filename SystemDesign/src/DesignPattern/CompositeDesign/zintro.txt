@@ -1,0 +1,45 @@
+The composite pattern is used when you want to represent a hierarchy of objects and need to
+treat both the individual objects and the groups of objects in a uniform way. So, composite
+Pattern lets you treat a single object and a group of objects in the same way. In simpler way
+you have a computer there is folder and files now to open a folder or file you do same set of
+actions i.e. double click.
+You don’t care whether you’re dealing with one thing, or many things grouped together. You call
+the same methods on both.
+
+Why do we need this design pattern?
+Consider a building block kind of application. Here, complex components can be built out of
+simple components which in turn could be used to build further complex components. This kind of
+architecture can be seen in many real world applications.
+
+
+Main Components of Composite Pattern
+1. Component: The base interface for all the objects in the composition. It should be either an
+interface or an abstract class with the common methods to manage the child composites. In case of
+file system a interface containing all method related to fs.
+2. Leaf: Implements the default behavior of the base component. It doesn’t contain a reference to
+the other objects. Like individual files in file system.
+3. Composite: Represents a group of objects, can contain leafs or other composites. It implements
+the base component methods and defines the child-related operations.
+4. Client: Works with base component interface only.
+
+
+When to use composite design pattern
+1. In File systems
+2. In UI components (buttons, panels, layouts)
+3. Organization hierarchy (CEO → Managers → Employees)
+4. HTML DOM tree
+5. JSON / XML trees
+
+
+Advantage of composite design pattern
+1. Treat single & group objects uniformly
+2. No if-else or instanceof checks
+3. Easy to add new types
+4. Clean recursive structure
+
+Without composite design pattern you need to handle each object type separately using if else
+if (item is File) {
+    openFile();
+} else if (item is Folder) {
+    openFolder();
+}
