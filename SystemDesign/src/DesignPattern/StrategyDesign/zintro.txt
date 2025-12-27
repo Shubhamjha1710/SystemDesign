@@ -1,0 +1,55 @@
+Strategy Design Pattern is a behavioral design pattern that allows you to define a family of
+algorithms or behaviors, put each of them in a separate class, and make them interchangeable
+at runtime. This pattern is useful when you want to dynamically change the behavior of a class
+without modifying its code.
+
+
+Real Life Software Examples
+1. Multiple payment methods (Credit Card, PayPal, Bank Transfer, UPI etc.) on an E-Commerce
+site. Each payment method has its own way to process, verify, handle failures, possibly different
+fees. Defining a PaymentStrategy interface and concrete implementations for each payment method
+picks the right one based on user choice at runtime.
+
+2. File compression utilities can employ the Strategy pattern to offer different compression
+methods (ZIP, GZIP, TAR) to the user, allowing them to choose the desired compression strategy.
+
+
+When to Use
+1. When behavior must be selected at runtime.
+2. When algorithms change frequently
+
+
+Without strategy design pattern
+if (paymentType.equals("CREDIT")) {
+    payByCreditCard();
+} else if (paymentType.equals("UPI")) {
+    payByUPI();
+} else if (paymentType.equals("WALLET")) {
+    payByWallet();
+}
+1. In above approach there is to many if else conditions
+2. Breaks open/close principle client needs to change there code on each new payment method
+
+
+Components of strategy design pattern
+1. Strategy Interface: An abstract class or interface known as the Strategy Interface specifies
+a set of methods that all concrete strategies must implement. As a kind of agreement, it guarantees
+that all strategies follow the same set of rules.
+
+2. Concrete Strategies: Concrete Strategies are the various implementation of the abstract class
+Each concrete strategy provides a specific algorithm or behavior for performing the task defined
+by the strategy interface.
+
+3. Context: The Context is the class that utilizes the Strategy. It references one of the
+strategies and can switch between them. The Context delegates the task to a Strategy object instead
+of implementing the algorithm directly, which makes the Context independent of the algorithm’s
+variations.
+
+What is the role of context.
+Context only provide some sort of abstraction to underlying strategies. Otherwise client need to
+know too much about strategies. Like internal function of different implementation etc. Bussiness
+logic may leaks. Using context client can just change the strategies and how diffrent algorithm
+is working will be abstracted inside context class.
+
+SortStrategy st = new BubbleSort()
+st.sort(input)
