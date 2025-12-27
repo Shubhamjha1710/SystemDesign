@@ -1,0 +1,70 @@
+Template Method Pattern is a behavioral pattern, defines the skeleton (fixed steps) of an
+algorithm in a base class, but lets subclasses decide how some steps are performed without
+altering its overall structure.
+
+Like you building training new AI-ML model. So, to train the model below basic structure
+should remains same. But the internal details of steps may varies.
+1. Load the data (common method for all subclasses i.e fixed template method)
+2. Preprocess the data (common method for all subclasses i.e fixed template method)
+3. Train model (different training strategies for diff model, i.e. abstract method)
+4. Evaluate model (different evaluation strategies for diff model, i.e. abstract method)
+5. Save model (common method for all subclasses i.e fixed template method)
+So, core idea is that make a common workflow in one place, and allow subclasses to change only
+specific steps.
+
+
+Component of template method pattern
+1. Abstract Class/Interface: Defines the template methods (algorithm skeleton) with some steps
+implemented and others left abstract or as hooks for customization.
+2. Template Method: Outlines the algorithm’s fixed structure by calling steps in order, often
+marked final to prevent changes.
+3. Abstract/Hook Methods: Placeholder methods in the abstract class that subclasses implements
+or optionally override.
+4. Concrete Subclasses: Provide implementations for abstract methods, customizing specific steps
+while preserving the overall algorithm.
+
+
+Use of the Template Method Design Pattern
+1. Common Algorithm with Variations: When an algorithm has a common structure but differs in some
+steps or implementations, the Template Method pattern can help subclasses customize specific parts
+while encapsulating the common phases in a superclass.
+2. Code Reusability: By specifying the common steps in one place, the Template Method design
+encourages code reuse when you have similar tasks or processes that must be executed.
+3. Enforcing Structure: It's useful when you want to provide some elements of an algorithm
+flexibility while maintaining a particular structure or set of steps.
+
+
+When not to use the Template Method Design Pattern?
+1. When Algorithms are Highly Variable: Using the Template Method pattern might not be appropriate
+if the algorithms you're dealing with have a lot of differences in their steps and structure
+and little in common. This is because it could result in inappropriate abstraction or excessive
+complexity.
+2. Tight Coupling Between Steps: The Template Method pattern might not offer enough flexibility
+if there is a close coupling between the algorithm's parts, so modifications to one step require
+modifications to other steps.
+3. Inflexibility with Runtime Changes: Because the Template Method pattern depends on predetermined
+structure and behavior, it might not be the best option if you expect frequent changes to the
+algorithm's stages or structure at runtime.
+
+
+Without Template Method Pattern:
+1. Duplicate logic
+2. Hard to maintain
+3. Any change must be repeated
+
+Example
+class CSVProcessor {
+    void process() {
+        read();
+        processCSV();
+        save();
+    }
+}
+
+class XMLProcessor {
+    void process() {
+        read();
+        processXML();
+        save();
+    }
+}
